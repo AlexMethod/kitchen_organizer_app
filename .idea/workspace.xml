@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d28f5c9c-a906-4a5a-b7d0-85fd0344556f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/pantallas/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/pantallas/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pantallas/home.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
