@@ -11,7 +11,7 @@ class MainDrawer extends StatelessWidget {
             child: Text('Usuario'),
           ),
           _botonDrawer(Icons.inventory, 'Inventario', context: context, ruta: ''),
-          _botonDrawer(Icons.view_list_outlined, 'Lista del super', context: context, ruta: ''),
+          _botonDrawer(Icons.view_list_outlined, 'Lista del super', context: context, ruta: '/listaSuper'),
           _botonDrawer(Icons.food_bank, 'Recetas', context: context, ruta: ''),
           _botonDrawer(Icons.featured_play_list, 'Info. productos', context: context, ruta: ''),
           Divider(),
