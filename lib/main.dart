@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'pantallas/home.dart';
+import 'package:kitchen_organizer_app/pantallas/configuracion_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,11 +23,16 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue,
+        accentColor: Colors.purple[800],
         // This makes the visual density adapt to the platform that you run
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
+
+        textTheme: TextTheme(
+          headline6: TextStyle(color: Colors.purple[800]),
+        ),
       ),
       initialRoute: '/',
       routes: {
@@ -34,7 +40,7 @@ class MyApp extends StatelessWidget {
         '/recetas'       : ( BuildContext context ) => HomePage(),
         '/listaSuper'    : ( BuildContext context ) => HomePage(),
         '/infoProductos' : ( BuildContext context ) => HomePage(),
-        '/configuracion' : ( BuildContext context ) => HomePage(),
+        '/configuracion' : ( BuildContext context ) => ConfiguracionPage(),
       },
     );
   }
