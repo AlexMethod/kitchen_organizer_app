@@ -19,6 +19,7 @@ class _InformacionProductosPageState extends State<InformacionProductosPage> {
       body: Builder( builder: (context) =>
         ListView(
           children: <Widget>[
+            _cardNuevaInfoProducto(context),
             _cardInfoProducto(context, 'Cebolla', '4 semanas', false),
             _cardInfoProducto(context, 'Limón', '2 semanas', false),
             _cardInfoProducto(context, 'Leche', '', true),
@@ -27,7 +28,6 @@ class _InformacionProductosPageState extends State<InformacionProductosPage> {
             _cardInfoProducto(context, 'Mayonesa', '', true),
             _cardInfoProducto(context, 'Plátano', '6 días', false),
             _cardInfoProducto(context, 'Zanahoria', '18 días', false),
-            _cardNuevaInfoProducto(context),
           ],
         )
       ),

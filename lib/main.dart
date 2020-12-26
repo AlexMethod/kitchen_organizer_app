@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'pantallas/home.dart';
+import 'package:kitchen_organizer_app/pantallas/recetas_page.dart';
 import 'package:kitchen_organizer_app/pantallas/lista_super_page.dart';
 import 'package:kitchen_organizer_app/pantallas/informacion_productos_page.dart';
 import 'package:kitchen_organizer_app/pantallas/configuracion_page.dart';
@@ -36,11 +37,34 @@ class MyApp extends StatelessWidget {
           headline6: TextStyle(color: Colors.purple[800]),
           bodyText2: TextStyle(fontSize: 16.0,)
         ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            foregroundColor:  MaterialStateProperty.all<Color>(Colors.purple[800]),
+          ),
+          /* colorScheme: ColorScheme(
+            brightness: Brightness.light,
+            primary: Colors.white,
+            onPrimary: Colors.purple[800],
+
+            secondary: Colors.lightGreen,
+            onSecondary: Colors.black,
+            
+            secondaryVariant: Colors.lime,
+            primaryVariant: Colors.black,
+            surface: Colors.pinkAccent,
+            onSurface: Colors.black,
+            background: Colors.yellowAccent,
+            onBackground: Colors.black,
+            error: Colors.redAccent,
+            onError: Colors.black,
+          ) */
+        )
       ),
       initialRoute: '/',
       routes: {
         '/'              : ( BuildContext context ) => HomePage(),
-        '/recetas'       : ( BuildContext context ) => HomePage(),
+        '/recetas'       : ( BuildContext context ) => RecetasPage(),
         '/listaSuper'    : ( BuildContext context ) => ListaSuperPage(),
         '/informacionProductos' : ( BuildContext context ) => InformacionProductosPage(),
         '/configuracion' : ( BuildContext context ) => ConfiguracionPage(),

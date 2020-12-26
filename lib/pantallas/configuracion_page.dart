@@ -27,7 +27,7 @@ class ConfiguracionPage extends StatelessWidget {
           ListTile(
             leading: Checkbox(
               onChanged: (value){},
-              value: false,
+              value: true,
             ),
             title: Text('Poco producto'),
           ),
