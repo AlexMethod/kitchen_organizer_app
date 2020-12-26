@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'pantallas/home.dart';
 import 'package:kitchen_organizer_app/pantallas/lista_super_page.dart';
+import 'package:kitchen_organizer_app/pantallas/informacion_productos_page.dart';
 import 'package:kitchen_organizer_app/pantallas/configuracion_page.dart';
 
 void main() {
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
 
         textTheme: TextTheme(
           headline6: TextStyle(color: Colors.purple[800]),
+          bodyText2: TextStyle(fontSize: 16.0)
         ),
       ),
       initialRoute: '/',
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
         '/'              : ( BuildContext context ) => HomePage(),
         '/recetas'       : ( BuildContext context ) => HomePage(),
         '/listaSuper'    : ( BuildContext context ) => ListaSuperPage(),
-        '/infoProductos' : ( BuildContext context ) => HomePage(),
+        '/informacionProductos' : ( BuildContext context ) => InformacionProductosPage(),
         '/configuracion' : ( BuildContext context ) => ConfiguracionPage(),
       },
     );
