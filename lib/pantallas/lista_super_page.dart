@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:kitchen_organizer_app/widgets/main_drawer.dart';
 import 'package:kitchen_organizer_app/modelos/producto_super.dart';
+import 'package:kitchen_organizer_app/widgets/textfield_personalizado.dart';
 
 class ListaSuperPage extends StatefulWidget {
   @override
@@ -109,22 +110,10 @@ class _ListaSuperPageState extends State<ListaSuperPage> {
           ),
           SizedBox(width: 10.0,),
           Expanded(
-            child: TextField(
-              controller: nuevoProductoController,
-              cursorColor: Theme.of(context).accentColor,
-              cursorHeight: 25.0,
-              keyboardType: TextInputType.text,
-              textCapitalization: TextCapitalization.sentences,
-              decoration: InputDecoration(
-                labelText: 'Añadir nuevo producto',
-                floatingLabelBehavior: FloatingLabelBehavior.never,
-                contentPadding: EdgeInsets.only(top: -20.0),
-                border: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                errorBorder: InputBorder.none,
-                disabledBorder: InputBorder.none,
-              ),
+            child: TextFieldPersonalizado(
+              'Añadir nuevo producto',
+              textEdittingController: nuevoProductoController,
+              textInputType: TextInputType.text,
             ),
           )
         ],
@@ -161,6 +150,4 @@ class _ListaSuperPageState extends State<ListaSuperPage> {
       currentFocus.unfocus();
     }
   }
-
-
 }

@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
 
         textTheme: TextTheme(
           headline6: TextStyle(color: Colors.purple[800]),
-          bodyText2: TextStyle(fontSize: 16.0)
+          bodyText2: TextStyle(fontSize: 16.0,)
         ),
       ),
       initialRoute: '/',

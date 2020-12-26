@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:kitchen_organizer_app/widgets/main_drawer.dart';
+import 'package:kitchen_organizer_app/widgets/textfield_personalizado.dart';
 
 class InformacionProductosPage extends StatefulWidget {
   @override
@@ -18,8 +19,15 @@ class _InformacionProductosPageState extends State<InformacionProductosPage> {
       body: Builder( builder: (context) =>
         ListView(
           children: <Widget>[
+            _cardInfoProducto(context, 'Cebolla', '4 semanas', false),
             _cardInfoProducto(context, 'Limón', '2 semanas', false),
             _cardInfoProducto(context, 'Leche', '', true),
+            _cardInfoProducto(context, 'Lechuga', '1 semana', false),
+            _cardInfoProducto(context, 'Jitomate', '2 semanas', false),
+            _cardInfoProducto(context, 'Mayonesa', '', true),
+            _cardInfoProducto(context, 'Plátano', '6 días', false),
+            _cardInfoProducto(context, 'Zanahoria', '18 días', false),
+            _cardNuevaInfoProducto(context),
           ],
         )
       ),
@@ -73,5 +81,60 @@ class _InformacionProductosPageState extends State<InformacionProductosPage> {
       ),
     );
   }
+
+  _cardNuevaInfoProducto(context){
+    return Card(
+      child: Container(
+        padding: EdgeInsets.only(bottom: 10.0, left: 15.0, right: 15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: TextFieldPersonalizado(
+                    'Nuevo producto'
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.add_circle,
+                    color: Theme.of(context).accentColor,
+                  ), 
+                  onPressed: (){}
+                ),
+              ],
+            ),
+            Divider(
+              color: Theme.of(context).accentColor,
+            ),
+            Row(
+              children: [
+                Container(
+                  width: 95.0,
+                  child: TextFieldPersonalizado(
+                    'Caducidad...',
+                    textInputType: TextInputType.number,
+                  ),
+                ),
+                Text('en días')
+              ],
+            ),
+            Row(
+              children: [
+                Switch(
+                  value: false, 
+                  onChanged: (value){}
+                  
+                ),
+                Text('Caducidad en el empaque')
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
 
 }
