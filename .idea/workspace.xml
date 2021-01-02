@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d28f5c9c-a906-4a5a-b7d0-85fd0344556f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/kitchen_organizer_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kitchen_organizer_app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modelos/producto_super.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pantallas/configuracion_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pantallas/informacion_productos_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pantallas/lista_super_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pantallas/recetas_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/main_drawer.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/textfield_personalizado.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/GeneratedPluginRegistrant.m" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pantallas/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pantallas/home.dart" afterDir="false" />
     </list>

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:kitchen_organizer_app/widgets/main_drawer.dart';
 
 class Home extends StatelessWidget {
 
@@ -69,5 +69,17 @@ class RectanguloPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) {
     return true;
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: MainDrawer(),
+      appBar: AppBar(
+        title: Text('Kitchen organizer'),
+      )
+    );
   }
 }
