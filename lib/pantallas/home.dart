@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kitchen_organizer_app/widgets/main_drawer.dart';
-import 'informacion_productos_page.dart';
+import 'inicio_sesion_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => InformacionProductosPage()),
+                        MaterialPageRoute(builder: (context) => InicioSesionPage()),
                       );
                     },
                     child: Text('Comenzar',style : TextStyle(fontSize: 20, color: Colors.white) ),

@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kitchen_organizer_app/widgets/main_drawer.dart';
-import 'registrarse_page.dart';
+import 'inicio_sesion_page.dart';
 
-class InicioSesionPage extends StatelessWidget {
+class RegistrarsePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,9 +23,26 @@ class InicioSesionPage extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.vertical,
               children: [
-                SizedBox(height: 250,),
+                SizedBox(height: 230,),
                 Center(
-                  child: Text('Inicio de Sesión', style : TextStyle(fontSize: 45, color: Color(0xff38006B)) ),
+                  child: Text('Registrarse', style : TextStyle(fontSize: 45, color: Color(0xff38006B)) ),
+                ),
+                SizedBox(height: 20,),
+                Container(
+                  margin: EdgeInsets.only(left: 25.0, right: 25.0),
+                  width: double.infinity,
+                  height: 55,
+                  alignment: Alignment.center,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15))
+                      ),
+                      filled: true,
+                      hintText: 'Nombre completo',
+                      hintStyle: new TextStyle(fontSize: 20),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 20,),
                 Container(
@@ -68,12 +85,12 @@ class InicioSesionPage extends StatelessWidget {
                   height: 55,
                   child: RaisedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => RegistrarsePage()),
-                      );
+                      /*Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => InicioSesionPage()),
+                    );*/
                     },
-                    child: Text('Iniciar sesión',style : TextStyle(fontSize: 20, color: Colors.white) ),
+                    child: Text('Registrarse',style : TextStyle(fontSize: 20, color: Colors.white) ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
                     ),
@@ -84,31 +101,18 @@ class InicioSesionPage extends StatelessWidget {
                 Center(
                   child: RichText(
                       text : TextSpan(
-                          text: '¿Olvidó su contraseña?',
+                          text: '¿Ya tienes cuenta? Inicia sesión',
                           style: TextStyle(fontSize: 25, color: Color(0xff38006B)),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => InicioSesionPage()),
+                              );
                             }
                       )
                   ),
                 ),
-                SizedBox(height: 20,),
-                Center(
-                  child: RichText(
-                    text : TextSpan(
-                      text: '¿Nuevo? Registrese',
-                      style: TextStyle(fontSize: 25, color: Color(0xff38006B)),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => RegistrarsePage()),
-                          );
-                        }
-                    )
-                  ),
-                )
               ],
             ),
           ),
