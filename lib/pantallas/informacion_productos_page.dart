@@ -16,19 +16,29 @@ class _InformacionProductosPageState extends State<InformacionProductosPage> {
         title: Text('Info. Productos'),
       ),
       drawer: MainDrawer(),
-      body: Builder( builder: (context) =>
-        ListView(
-          children: <Widget>[
-            _cardNuevaInfoProducto(context),
-            _cardInfoProducto(context, 'Cebolla', '4 semanas', false),
-            _cardInfoProducto(context, 'Limón', '2 semanas', false),
-            _cardInfoProducto(context, 'Leche', '', true),
-            _cardInfoProducto(context, 'Lechuga', '1 semana', false),
-            _cardInfoProducto(context, 'Jitomate', '2 semanas', false),
-            _cardInfoProducto(context, 'Mayonesa', '', true),
-            _cardInfoProducto(context, 'Plátano', '6 días', false),
-            _cardInfoProducto(context, 'Zanahoria', '18 días', false),
-          ],
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+            image : DecorationImage(
+                image : AssetImage("assets/images/Screen3.png"),
+                fit : BoxFit.cover
+            )
+        ),
+        child : Builder( builder: (context) =>
+            ListView(
+              children: <Widget>[
+                _cardNuevaInfoProducto(context),
+                _cardInfoProducto(context, 'Cebolla', '4 semanas', false),
+                _cardInfoProducto(context, 'Limón', '2 semanas', false),
+                _cardInfoProducto(context, 'Leche', '', true),
+                _cardInfoProducto(context, 'Lechuga', '1 semana', false),
+                _cardInfoProducto(context, 'Jitomate', '2 semanas', false),
+                _cardInfoProducto(context, 'Mayonesa', '', true),
+                _cardInfoProducto(context, 'Plátano', '6 días', false),
+                _cardInfoProducto(context, 'Zanahoria', '18 días', false),
+              ],
+            )
         )
       ),
     );

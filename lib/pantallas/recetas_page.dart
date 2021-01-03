@@ -10,21 +10,31 @@ class RecetasPage extends StatelessWidget {
         title: Text('Recetas'),
       ),
       drawer: MainDrawer(),
-      body: ListView(
-        children: [
-          Row(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+            image : DecorationImage(
+                image : AssetImage("assets/images/Screen3.png"),
+                fit : BoxFit.cover
+            )
+        ),
+        child: ListView(
             children: [
-              SizedBox(width: 5.0,),
-              _botonReceta(context, 'Filtrar', Icons.filter_alt),
-              SizedBox(width: 5.0,),
-              _botonReceta(context, 'Ordenar', Icons.sort_by_alpha),
-            ],
-          ),
-          _cardReceta(context, 'Pollo a la plancha'),
-          _cardReceta(context, 'Pollo encacahuatado'),
-          _cardReceta(context, 'Estofado de pollo con hongos'),
-          _cardReceta(context, 'Tacos dorados de pollo'),
-        ]
+              Row(
+                children: [
+                  SizedBox(width: 5.0,),
+                  _botonReceta(context, 'Filtrar', Icons.filter_alt),
+                  SizedBox(width: 5.0,),
+                  _botonReceta(context, 'Ordenar', Icons.sort_by_alpha),
+                ],
+              ),
+              _cardReceta(context, 'Pollo a la plancha'),
+              _cardReceta(context, 'Pollo encacahuatado'),
+              _cardReceta(context, 'Estofado de pollo con hongos'),
+              _cardReceta(context, 'Tacos dorados de pollo'),
+            ]
+        ),
       ),
     );
   }

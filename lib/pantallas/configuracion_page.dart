@@ -10,55 +10,65 @@ class ConfiguracionPage extends StatelessWidget {
         title: Text('Configuración'),
       ),
       drawer: MainDrawer(),
-      body: ListView(
-        padding: EdgeInsets.all(20.0),
-        children: <Widget>[
-          Text(
-            'Notificaciones',
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          ListTile(
-            leading: Checkbox(
-              onChanged: (value){},
-              value: false,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+            image : DecorationImage(
+                image : AssetImage("assets/images/Screen3.png"),
+                fit : BoxFit.cover
+            )
+        ),
+        child: ListView(
+          padding: EdgeInsets.all(20.0),
+          children: <Widget>[
+            Text(
+              'Notificaciones',
+              style: Theme.of(context).textTheme.headline6,
             ),
-            title: Text('Caducidad'),
-          ),
-          ListTile(
-            leading: Checkbox(
-              onChanged: (value){},
-              value: true,
+            ListTile(
+              leading: Checkbox(
+                onChanged: (value){},
+                value: false,
+              ),
+              title: Text('Caducidad'),
             ),
-            title: Text('Poco producto'),
-          ),
-          Text(
-            'Aplicación',
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          InkWell(
-            onTap: (){},
-            child: ListTile(
-              title: Text(
-                'Tema de la aplicación',
-                textAlign: TextAlign.left,
+            ListTile(
+              leading: Checkbox(
+                onChanged: (value){},
+                value: true,
+              ),
+              title: Text('Poco producto'),
+            ),
+            Text(
+              'Aplicación',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            InkWell(
+              onTap: (){},
+              child: ListTile(
+                title: Text(
+                  'Tema de la aplicación',
+                  textAlign: TextAlign.left,
+                ),
               ),
             ),
-          ),
-          Text(
-            'Cuenta',
-            style: Theme.of(context).textTheme.headline6,
-          ),
-          InkWell(
-            onTap: (){},
-            child: ListTile(
-              title: Text(
-                'Detalles de la cuenta',
-                textAlign: TextAlign.left,
+            Text(
+              'Cuenta',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            InkWell(
+              onTap: (){},
+              child: ListTile(
+                title: Text(
+                  'Detalles de la cuenta',
+                  textAlign: TextAlign.left,
+                ),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      )
     );
   }
 }

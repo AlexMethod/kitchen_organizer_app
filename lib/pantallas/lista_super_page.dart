@@ -21,15 +21,25 @@ class _ListaSuperPageState extends State<ListaSuperPage> {
         title: Text('Lista del super'),
       ),
       drawer: MainDrawer(),
-      body: Builder( builder: (context) =>
-        GestureDetector(
-          onTap: () {
-            _unfocus(context);
-          },
-          child: ListView(
-            children: _cardsLista(context),
-          ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+            image : DecorationImage(
+                image : AssetImage("assets/images/Screen3.png"),
+                fit : BoxFit.cover
+            )
         ),
+        child : Builder( builder: (context) =>
+            GestureDetector(
+              onTap: () {
+                _unfocus(context);
+              },
+              child: ListView(
+                children: _cardsLista(context),
+              ),
+            ),
+        )
       ),
     );
   }
