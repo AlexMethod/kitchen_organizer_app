@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kitchen_organizer_app/pantallas/inventario_page.dart';
 
 import 'pantallas/home.dart';
 import 'package:kitchen_organizer_app/pantallas/recetas_page.dart';
@@ -63,6 +64,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/'              : ( BuildContext context ) => HomePage(),
+        '/inventario'    : ( BuildContext context ) => InventarioPage(),
         '/recetas'       : ( BuildContext context ) => RecetasPage(),
         '/listaSuper'    : ( BuildContext context ) => ListaSuperPage(),
         '/informacionProductos' : ( BuildContext context ) => InformacionProductosPage(),
