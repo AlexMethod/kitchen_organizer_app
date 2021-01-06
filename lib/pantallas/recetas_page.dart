@@ -29,17 +29,17 @@ class RecetasPage extends StatelessWidget {
                   _botonReceta(context, 'Ordenar', Icons.sort_by_alpha),
                 ],
               ),
-              _cardReceta(context, 'Pollo a la plancha'),
-              _cardReceta(context, 'Pollo encacahuatado'),
-              _cardReceta(context, 'Estofado de pollo con hongos'),
-              _cardReceta(context, 'Tacos dorados de pollo'),
+              _cardReceta(context, 'Pollo a la plancha', 'Primero, reúne todos los ingredientes para preparar esta receta ligera. Usaremos limón para hacer que la pechuga a la plancha esté más jugosa, pero también puedes usar vinagre de manzana en vez de limón.'),
+              _cardReceta(context, 'Pollo encacahuatado', 'Se pone a cocer el pollo con el cilantro, 1/4 de la cebolla y caldo de pollo en un poco de agua. También se hierven los jitomates para poder quitar la cascarilla. En una sartén se ponen a dorar los cacahuates y el chile (se reservan).'),
+              _cardReceta(context, 'Estofado de pollo con hongos', 'Para este guiso podemos emplear trozos de pollo, pero siempre os recomiendo que sean trozos con hueso, pues suelen ser las partes del pollo más sabrosas. Con estos zancos o con muslos de pollo quedan muy ricos.'),
+              _cardReceta(context, 'Tacos dorados de pollo', 'Lo primero es poner a cocer las pechugas de pollo en una olla junto con una cebolla y media, los cuatro ajos pelados y un chorrito de aceite de oliva. Cubrimos bien de agua y lo ponemos, tapado, a fuego alto hasta que hierva. En este paso podéis añadir a la olla otras verduras para dar más sabor, como tomate, puerro, pimiento, apio o zanahoria. '),
             ]
         ),
       ),
     );
   }
 
-  _cardReceta(context, nombreReceta){
+  _cardReceta(context, nombreReceta, contenido){
     return Container(
       margin: EdgeInsets.all(8.0),
       padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 10.0),
@@ -54,7 +54,7 @@ class RecetasPage extends StatelessWidget {
             color: Theme.of(context).accentColor,
           ),
           Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            contenido,
             textAlign: TextAlign.justify,
           ),
           Row(
