@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kitchen_organizer_app/widgets/main_drawer.dart';
 import 'package:kitchen_organizer_app/modelos/producto_inventario.dart';
 import 'package:intl/intl.dart';
+import 'package:kitchen_organizer_app/widgets/textfield_personalizado.dart';
 
 class InventarioPage extends StatefulWidget{
   @override
@@ -11,8 +12,10 @@ class InventarioPage extends StatefulWidget{
 }
 
 class _InventarioPageState extends State<InventarioPage> {
-  final nuevoProductoController = TextEditingController();
-  List<ProductoInventario> productos = new List();
+  final nombreProductoController = TextEditingController();
+  final cantidadProductoController = TextEditingController();
+  final caducidadProductoController = TextEditingController();
+  var _productos;
 
   @override
   Widget build(BuildContext context){
@@ -54,31 +57,113 @@ class _InventarioPageState extends State<InventarioPage> {
     return items;
   }
 
-  List<Widget> _getItemsInventario(context){
+  List<Widget> _getItemsInventario(context) {
     var cardsProductos = <Widget>[];
-    productos.add(new ProductoInventario("Cebolla",2,new DateTime(2020,12,17),20));
+    /*productos.add(new ProductoInventario("Cebolla",2,new DateTime(2020,12,17),20));
     productos.add(new ProductoInventario("Lechuga",6,new DateTime(2020,12,18),1));
     productos.add(new ProductoInventario("Jitomate",10,new DateTime(2020,12,19),10));
-    productos.add(new ProductoInventario("Arroz",12,new DateTime(2020,12,20),4));
-    productos.forEach((element) {
-      cardsProductos.add(_cardItemInventario(context, element.nombre, element.cantidad,element.adquisicion, element.caducidad));
+    productos.add(new ProductoInventario("Arroz",12,new DateTime(2020,12,20),4));*/
+
+    fetchItemsInventario();
+
+
+    _productos.forEach((element) {
+       var _nombre = element.get("nombre");
+       var _cantidad = element.get("cantidad");
+       var _adquisicionRaw = element.get("adquisicion");
+       var _adquisicion = new DateTime.fromMicrosecondsSinceEpoch(_adquisicionRaw.microsecondsSinceEpoch);
+       var _caducidad = element.get("caducidad");
+
+      cardsProductos.add(_cardItemInventario(context, _nombre, _cantidad,_adquisicion,_caducidad));
     });
     return cardsProductos;
   }
 
   Widget _addButton(context){
+
     return Container(
-      margin : EdgeInsets.only(right: 15),
-      child : Align(
-        alignment: Alignment.centerRight,
-        child: IconButton(
-          icon : Icon(Icons.add_box, color : Color(0xff5D34AF), size: 50,),
-          onPressed: () {
-              addItemIventario();
-          },
-        ),
+      margin : EdgeInsets.only(left : 10, right : 10),
+      child : Column(
+        children: [
+          Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100.0)
+            ),
+            clipBehavior: Clip.hardEdge,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(width: 10.0,),
+
+                SizedBox(width: 10.0,),
+                Expanded(
+                  child: TextFieldPersonalizado(
+                    'Nombre producto',
+                    textEdittingController: nombreProductoController,
+                    textInputType: TextInputType.text,
+                  ),
+                )
+              ],
+            ),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100.0)
+            ),
+            clipBehavior: Clip.hardEdge,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(width: 10.0,),
+
+                SizedBox(width: 10.0,),
+                Expanded(
+                  child: TextFieldPersonalizado(
+                    'Cantidad',
+                    textEdittingController: cantidadProductoController,
+                    textInputType: TextInputType.text,
+                  ),
+                )
+              ],
+            ),
+          ),
+          Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(100.0)
+            ),
+            clipBehavior: Clip.hardEdge,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(width: 10.0,),
+
+                SizedBox(width: 10.0,),
+                Expanded(
+                  child: TextFieldPersonalizado(
+                    'Caducidad en días',
+                    textEdittingController: caducidadProductoController,
+                    textInputType: TextInputType.text,
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+              margin : EdgeInsets.only(right: 15),
+              child : Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  icon : Icon(Icons.add_box, color : Color(0xff5D34AF), size: 50,),
+                  onPressed: () {
+                    addItemIventario(nombreProductoController.text,int.parse(cantidadProductoController.text),int.parse(caducidadProductoController.text));
+                  },
+                ),
+              )
+          )
+        ]
       )
     );
+
   }
 
   Widget _cardItemInventario(context, String producto, int cantidad, DateTime fecha, int caducidad) {
@@ -169,24 +254,22 @@ class _InventarioPageState extends State<InventarioPage> {
     }
   }
 
-  addItemIventario(){
+  addItemIventario(String nombre, int cantidad, int caducidad){
     CollectionReference Productos = FirebaseFirestore.instance.collection('productos');
     Map<String,dynamic> producto = {
-      "nombre" : "Chuleta",
+      "nombre" : nombre,
       "adquisicion" : DateTime.now(),
-      "cantidad" : 15,
-      "caducidad" : 10
+      "cantidad" : cantidad,
+      "caducidad" : caducidad
     };
     Productos.add(producto);
   }
 
-  fetchItemsInventario(){
+  fetchItemsInventario() async {
     CollectionReference Productos = FirebaseFirestore.instance.collection('productos');
-    Productos.snapshots().listen((snapshot) {
-      List documents;
-      setState(() {
-          documents = snapshot.docs;
-      });
+    var prod = (await Productos.get()).docs;
+    setState(() {
+      _productos = prod;
     });
   }
 
