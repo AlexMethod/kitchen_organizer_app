@@ -75,7 +75,7 @@ class AgregarItemInventarioPage extends StatelessWidget{
                           child: TextFieldPersonalizado(
                             'Cantidad',
                             textEdittingController: cantidadProductoController,
-                            textInputType: TextInputType.text,
+                            textInputType: TextInputType.number,
                           ),
                         )
                       ],
@@ -99,7 +99,7 @@ class AgregarItemInventarioPage extends StatelessWidget{
                           child: TextFieldPersonalizado(
                             'Caducidad en días',
                             textEdittingController: caducidadProductoController,
-                            textInputType: TextInputType.text,
+                            textInputType: TextInputType.number,
                           ),
                         )
                       ],
@@ -113,9 +113,10 @@ class AgregarItemInventarioPage extends StatelessWidget{
                           icon : Icon(Icons.add_box, color : Color(0xff5D34AF), size: 50,),
                           onPressed: () {
                             addItemIventario(nombreProductoController.text,int.parse(cantidadProductoController.text),int.parse(caducidadProductoController.text));
-                            Navigator.push(
+                            Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(builder: (context) => InventarioPage()),
+                              ModalRoute.withName('/inventario'),
                             );
                           },
                         ),
