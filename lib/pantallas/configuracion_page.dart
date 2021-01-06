@@ -22,47 +22,57 @@ class ConfiguracionPage extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.all(20.0),
           children: <Widget>[
-            Text(
-              'Notificaciones',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            ListTile(
-              leading: Checkbox(
-                onChanged: (value){},
-                value: false,
-              ),
-              title: Text('Caducidad'),
-            ),
-            ListTile(
-              leading: Checkbox(
-                onChanged: (value){},
-                value: true,
-              ),
-              title: Text('Poco producto'),
-            ),
-            Text(
-              'Aplicación',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            InkWell(
-              onTap: (){},
-              child: ListTile(
-                title: Text(
-                  'Tema de la aplicación',
-                  textAlign: TextAlign.left,
-                ),
-              ),
-            ),
-            Text(
-              'Cuenta',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            InkWell(
-              onTap: (){},
-              child: ListTile(
-                title: Text(
-                  'Detalles de la cuenta',
-                  textAlign: TextAlign.left,
+            Card(
+              child: Container(
+                padding: EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Notificaciones',
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    ListTile(
+                      leading: Checkbox(
+                        onChanged: (value){},
+                        value: false,
+                      ),
+                      title: Text('Caducidad'),
+                    ),
+                    ListTile(
+                      leading: Checkbox(
+                        onChanged: (value){},
+                        value: true,
+                      ),
+                      title: Text('Poco producto'),
+                    ),
+                    Text(
+                      'Aplicación',
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    InkWell(
+                      onTap: (){},
+                      child: ListTile(
+                        title: Text(
+                          'Tema de la aplicación',
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'Cuenta',
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    InkWell(
+                      onTap: (){},
+                      child: ListTile(
+                        title: Text(
+                          'Detalles de la cuenta',
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
