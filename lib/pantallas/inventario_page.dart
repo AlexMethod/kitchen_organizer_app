@@ -62,16 +62,17 @@ class _InventarioPageState extends State<InventarioPage> {
 
     fetchItemsInventario();
 
-    _productos.forEach((element) {
-       var _id = element.get("id");
-       var _nombre = element.get("nombre");
-       var _cantidad = element.get("cantidad");
-       var _adquisicionRaw = element.get("adquisicion");
-       var _adquisicion = new DateTime.fromMicrosecondsSinceEpoch(_adquisicionRaw.microsecondsSinceEpoch);
-       var _caducidad = element.get("caducidad");
+    if(_productos != null)
+      _productos.forEach((element) {
+        var _id = element.get("id");
+        var _nombre = element.get("nombre");
+        var _cantidad = element.get("cantidad");
+        var _adquisicionRaw = element.get("adquisicion");
+        var _adquisicion = new DateTime.fromMicrosecondsSinceEpoch(_adquisicionRaw.microsecondsSinceEpoch);
+        var _caducidad = element.get("caducidad");
 
-      cardsProductos.add(_cardItemInventario(context,_id, _nombre, _cantidad,_adquisicion,_caducidad));
-    });
+        cardsProductos.add(_cardItemInventario(context,_id, _nombre, _cantidad,_adquisicion,_caducidad));
+      });
     return cardsProductos;
   }
 
@@ -99,72 +100,72 @@ class _InventarioPageState extends State<InventarioPage> {
     final DateFormat formatter = DateFormat("dd-MM-yyyy");
     String _fecha = formatter.format(fecha);
     return Container(
-        height: 100,
         margin: EdgeInsets.only(left : 10,right: 10, top: 10),
         child : Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0)
-            ),
-            clipBehavior: Clip.hardEdge,
-            child: Container(
-                margin: EdgeInsets.only(left : 10, right: 10),
-                child : Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          margin : EdgeInsets.only(top : 5),
-                          child : Text(producto,style : TextStyle(fontSize: 20, color: Color(0xff5D34AF))),
-                        ),
-                        Row(
-                          children : [
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => EditarItemInventarioPage(producto,_fecha, cantidad, caducidad)),
-                                  );
-                                },
-                                child : Icon(
-                                    Icons.border_color,
-                                    color : Color(0xff5D34AF)
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0)
+          ),
+          clipBehavior: Clip.hardEdge,
+          child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 13.0, vertical: 8.0),
+              child : Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        margin : EdgeInsets.only(top : 5),
+                        child : Text(producto,style : TextStyle(fontSize: 20, color: Color(0xff5D34AF))),
+                      ),
+                      RichText(
+                          text : TextSpan(
+                              text : 'Cantidad: ',
+                              style: TextStyle(color : Colors.black, fontSize: 15),
+                              children: [
+                                TextSpan(
+                                    text : cantidad.toString(),
+                                    style : TextStyle(color : Color(0xff5D34AF), fontSize: 15)
                                 )
-                            ),
-                            GestureDetector(
-                                onTap: () {
-                                  deleteItemInventario(id);
-                                },
-                                child : Icon(
-                                    Icons.restore_from_trash,
-                                    color : Color(0xff5D34AF)
-                                )
-                            )
-                          ]
-                        )
-                      ],
-                    ),
-                    Divider(
-                        thickness: 2,
-                        color : Color(0xff5D34AF)
-                    ),
-                    Container(
-                      margin : EdgeInsets.only(top: 10),
-                      child : Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          RichText(
-                              text : TextSpan(
-                                  text : 'Cantidad: ',
-                                  style: TextStyle(color : Colors.black, fontSize: 15),
-                                  children: [
-                                    TextSpan(
-                                        text : cantidad.toString(),
-                                        style : TextStyle(color : Color(0xff5D34AF), fontSize: 15)
-                                    )
-                                  ]
+                              ]
+                          )
+                      ),
+                      Row(
+                        children : [
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => EditarItemInventarioPage(producto,_fecha, cantidad, caducidad)),
+                                );
+                              },
+                              child : Icon(
+                                  Icons.border_color,
+                                  color : Color(0xff5D34AF)
                               )
                           ),
+                          GestureDetector(
+                              onTap: () {
+                                deleteItemInventario(id);
+                              },
+                              child : Icon(
+                                  Icons.restore_from_trash,
+                                  color : Color(0xff5D34AF)
+                              )
+                          )
+                        ]
+                      )
+                    ],
+                  ),
+                  Divider(
+                      thickness: 2,
+                      color : Color(0xff5D34AF)
+                  ),
+                  Container(
+                    margin : EdgeInsets.only(top: 10),
+                    child : Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
                           RichText(
                               text: TextSpan(
                                 text : 'Adquisición: ',
@@ -183,18 +184,18 @@ class _InventarioPageState extends State<InventarioPage> {
                                   style: TextStyle(fontSize: 15, color : Colors.black),
                                   children : [
                                     TextSpan(
-                                        text : caducidad.toString(),
+                                        text : caducidad.toString() + ' días',
                                         style: TextStyle(color : Color(0xff5D34AF), fontSize: 15)
                                     )
                                   ]
                               )
                           )
                         ],
-                      )
+                      ),
                     )
-
-                  ],
-                )
+                  )
+                ],
+              )
             )
         )
     );
@@ -232,9 +233,10 @@ class _InventarioPageState extends State<InventarioPage> {
   fetchItemsInventario() async {
     CollectionReference Productos = FirebaseFirestore.instance.collection('productos');
     var prod = (await Productos.get()).docs;
-    setState(() {
-      _productos = prod;
-    });
+    if(this.mounted)
+      setState(() {
+        _productos = prod;
+      });
   }
 
 }

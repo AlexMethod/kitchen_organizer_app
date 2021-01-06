@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -46,22 +47,6 @@ class MyApp extends StatelessWidget {
               backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
               foregroundColor:  MaterialStateProperty.all<Color>(Colors.purple[800]),
             ),
-            /* colorScheme: ColorScheme(
-            brightness: Brightness.light,
-            primary: Colors.white,
-            onPrimary: Colors.purple[800],
-            secondary: Colors.lightGreen,
-            onSecondary: Colors.black,
-
-            secondaryVariant: Colors.lime,
-            primaryVariant: Colors.black,
-            surface: Colors.pinkAccent,
-            onSurface: Colors.black,
-            background: Colors.yellowAccent,
-            onBackground: Colors.black,
-            error: Colors.redAccent,
-            onError: Colors.black,
-          ) */
           )
       ),
       initialRoute: '/',
