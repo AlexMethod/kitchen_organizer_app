@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kitchen_organizer_app/widgets/main_drawer.dart';
 import 'registrarse_page.dart';
-import 'inicio_page.dart';
 import 'inventario_page.dart';
 
 class InicioSesionPage extends StatelessWidget {
