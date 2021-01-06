@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kitchen_organizer_app/widgets/main_drawer.dart';
 import 'registrarse_page.dart';
 import 'inicio_page.dart';
+import 'inventario_page.dart';
 
 class InicioSesionPage extends StatelessWidget {
   @override
@@ -71,7 +72,7 @@ class InicioSesionPage extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => InicioPage()),
+                        MaterialPageRoute(builder: (context) => InventarioPage()),
                       );
                     },
                     child: Text('Iniciar sesión',style : TextStyle(fontSize: 20, color: Colors.white) ),

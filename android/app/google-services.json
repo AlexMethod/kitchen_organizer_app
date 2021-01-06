@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "729674301650",
+    "project_id": "kitchen-organizer-app",
+    "storage_bucket": "kitchen-organizer-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729674301650:android:3899cf139f5f17ec492d0b",
+        "android_client_info": {
+          "package_name": "com.example.kitchen_organizer_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729674301650-e412c95ugk0v7f07i5lnfbkbj8eleqto.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp-e9JxY1kuE3c0Yyy28Keh_TYmcK-P8A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729674301650-e412c95ugk0v7f07i5lnfbkbj8eleqto.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

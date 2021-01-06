@@ -6,8 +6,11 @@ import 'package:kitchen_organizer_app/pantallas/recetas_page.dart';
 import 'package:kitchen_organizer_app/pantallas/lista_super_page.dart';
 import 'package:kitchen_organizer_app/pantallas/informacion_productos_page.dart';
 import 'package:kitchen_organizer_app/pantallas/configuracion_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
