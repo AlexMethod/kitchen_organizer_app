@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TextFieldPersonalizado extends StatefulWidget {
-  const TextFieldPersonalizado(this.texto,{this.textEdittingController, this.textInputType});
+  const TextFieldPersonalizado(this.texto,{this.textEdittingController, this.textInputType, this.textStyle});
 
   final String texto;
   final TextEditingController textEdittingController;
   final TextInputType textInputType;
+  final TextStyle textStyle;
   
   @override
   _TextFieldPersonalizadoState createState() => _TextFieldPersonalizadoState();
@@ -20,7 +21,7 @@ class _TextFieldPersonalizadoState extends State<TextFieldPersonalizado> {
       cursorHeight: 20.0,
       keyboardType: widget.textInputType,
       textCapitalization: TextCapitalization.sentences,
-      style: Theme.of(context).textTheme.bodyText2.copyWith(color: Theme.of(context).accentColor),
+      style: (widget.textStyle != null) ? widget.textStyle : Theme.of(context).textTheme.bodyText2.copyWith(color: Theme.of(context).accentColor) ,
       decoration: InputDecoration(
         labelText: widget.texto,
         labelStyle: TextStyle(

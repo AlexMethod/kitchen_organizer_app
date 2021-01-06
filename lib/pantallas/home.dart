@@ -29,6 +29,7 @@ class HomePage extends StatelessWidget {
                 child: Container(
                   width: 100,
                   height: 50,
+                  margin: EdgeInsets.all(15),
                   child: RaisedButton(
                     onPressed: () {
                       Navigator.push(

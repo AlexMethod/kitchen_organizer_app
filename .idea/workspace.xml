@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d28f5c9c-a906-4a5a-b7d0-85fd0344556f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/pantallas/agregar_item_inventario_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pantallas/editar_item_inventario_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/textfield_edicion_producto.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/ad418cf445d485cfc7edff1b5ef344e3/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/ad418cf445d485cfc7edff1b5ef344e3/.filecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/ad418cf445d485cfc7edff1b5ef344e3/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/ad418cf445d485cfc7edff1b5ef344e3/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/ad418cf445d485cfc7edff1b5ef344e3/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/ad418cf445d485cfc7edff1b5ef344e3/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/ad418cf445d485cfc7edff1b5ef344e3/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/ad418cf445d485cfc7edff1b5ef344e3/kernel_snapshot.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/android/.gradle/5.6.2/executionHistory/executionHistory.bin" afterDir="false" />
@@ -22,7 +27,9 @@
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pantallas/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pantallas/home.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pantallas/inventario_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pantallas/inventario_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/textfield_personalizado.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/textfield_personalizado.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,30 +95,30 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="363" y="120" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.768@0.0.1366.768" timestamp="1608414037376" />
-    <state x="33" y="104" width="1182" height="584" key="AVDManager" timestamp="1609910088945">
+    <state x="33" y="104" width="1182" height="584" key="AVDManager" timestamp="1609914928781">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="33" y="104" width="1182" height="584" key="AVDManager/0.0.1366.768@0.0.1366.768" timestamp="1609910088945" />
+    <state x="33" y="104" width="1182" height="584" key="AVDManager/0.0.1366.768@0.0.1366.768" timestamp="1609914928781" />
     <state x="463" y="125" key="FileChooserDialogImpl" timestamp="1608415025434">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="463" y="125" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1608415025434" />
-    <state width="1323" height="189" key="GridCell.Tab.0.bottom" timestamp="1609911389329">
+    <state width="1323" height="189" key="GridCell.Tab.0.bottom" timestamp="1609914791868">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="189" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1609911389329" />
-    <state width="1323" height="189" key="GridCell.Tab.0.center" timestamp="1609911389329">
+    <state width="1323" height="189" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1609914791868" />
+    <state width="1323" height="189" key="GridCell.Tab.0.center" timestamp="1609914791867">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="189" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1609911389329" />
-    <state width="1323" height="189" key="GridCell.Tab.0.left" timestamp="1609911389328">
+    <state width="1323" height="189" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1609914791867" />
+    <state width="1323" height="189" key="GridCell.Tab.0.left" timestamp="1609914791867">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="189" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1609911389328" />
-    <state width="1323" height="189" key="GridCell.Tab.0.right" timestamp="1609911389329">
+    <state width="1323" height="189" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1609914791867" />
+    <state width="1323" height="189" key="GridCell.Tab.0.right" timestamp="1609914791867">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="189" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1609911389329" />
+    <state width="1323" height="189" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1609914791867" />
     <state x="184" y="29" key="SettingsEditor" timestamp="1608415041124">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

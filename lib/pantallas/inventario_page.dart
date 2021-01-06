@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kitchen_organizer_app/widgets/main_drawer.dart';
-import 'package:kitchen_organizer_app/modelos/producto_inventario.dart';
 import 'package:intl/intl.dart';
-import 'package:kitchen_organizer_app/widgets/textfield_personalizado.dart';
+import 'agregar_item_inventario_page.dart';
+import 'editar_item_inventario_page.dart';
 
 class InventarioPage extends StatefulWidget{
   @override
@@ -59,22 +59,18 @@ class _InventarioPageState extends State<InventarioPage> {
 
   List<Widget> _getItemsInventario(context) {
     var cardsProductos = <Widget>[];
-    /*productos.add(new ProductoInventario("Cebolla",2,new DateTime(2020,12,17),20));
-    productos.add(new ProductoInventario("Lechuga",6,new DateTime(2020,12,18),1));
-    productos.add(new ProductoInventario("Jitomate",10,new DateTime(2020,12,19),10));
-    productos.add(new ProductoInventario("Arroz",12,new DateTime(2020,12,20),4));*/
 
     fetchItemsInventario();
 
-
     _productos.forEach((element) {
+       var _id = element.get("id");
        var _nombre = element.get("nombre");
        var _cantidad = element.get("cantidad");
        var _adquisicionRaw = element.get("adquisicion");
        var _adquisicion = new DateTime.fromMicrosecondsSinceEpoch(_adquisicionRaw.microsecondsSinceEpoch);
        var _caducidad = element.get("caducidad");
 
-      cardsProductos.add(_cardItemInventario(context, _nombre, _cantidad,_adquisicion,_caducidad));
+      cardsProductos.add(_cardItemInventario(context,_id, _nombre, _cantidad,_adquisicion,_caducidad));
     });
     return cardsProductos;
   }
@@ -82,91 +78,24 @@ class _InventarioPageState extends State<InventarioPage> {
   Widget _addButton(context){
 
     return Container(
-      margin : EdgeInsets.only(left : 10, right : 10),
-      child : Column(
-        children: [
-          Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(100.0)
-            ),
-            clipBehavior: Clip.hardEdge,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(width: 10.0,),
-
-                SizedBox(width: 10.0,),
-                Expanded(
-                  child: TextFieldPersonalizado(
-                    'Nombre producto',
-                    textEdittingController: nombreProductoController,
-                    textInputType: TextInputType.text,
-                  ),
-                )
-              ],
-            ),
+        margin : EdgeInsets.only(right : 15,bottom: 20),
+        child : Align(
+          alignment: Alignment.centerRight,
+          child: IconButton(
+            icon : Icon(Icons.add_box, color : Color(0xff5D34AF), size: 50,),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AgregarItemInventarioPage()),
+              );
+            },
           ),
-          Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(100.0)
-            ),
-            clipBehavior: Clip.hardEdge,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(width: 10.0,),
-
-                SizedBox(width: 10.0,),
-                Expanded(
-                  child: TextFieldPersonalizado(
-                    'Cantidad',
-                    textEdittingController: cantidadProductoController,
-                    textInputType: TextInputType.text,
-                  ),
-                )
-              ],
-            ),
-          ),
-          Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(100.0)
-            ),
-            clipBehavior: Clip.hardEdge,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(width: 10.0,),
-
-                SizedBox(width: 10.0,),
-                Expanded(
-                  child: TextFieldPersonalizado(
-                    'Caducidad en días',
-                    textEdittingController: caducidadProductoController,
-                    textInputType: TextInputType.text,
-                  ),
-                )
-              ],
-            ),
-          ),
-          Container(
-              margin : EdgeInsets.only(right: 15),
-              child : Align(
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  icon : Icon(Icons.add_box, color : Color(0xff5D34AF), size: 50,),
-                  onPressed: () {
-                    addItemIventario(nombreProductoController.text,int.parse(cantidadProductoController.text),int.parse(caducidadProductoController.text));
-                  },
-                ),
-              )
-          )
-        ]
-      )
+        )
     );
 
   }
 
-  Widget _cardItemInventario(context, String producto, int cantidad, DateTime fecha, int caducidad) {
+  Widget _cardItemInventario(context,String id, String producto, int cantidad, DateTime fecha, int caducidad) {
     final DateFormat formatter = DateFormat("dd-MM-yyyy");
     String _fecha = formatter.format(fecha);
     return Container(
@@ -184,10 +113,34 @@ class _InventarioPageState extends State<InventarioPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(producto,style : TextStyle(fontSize: 20, color: Color(0xff5D34AF))),
-                        Icon(
-                            Icons.border_color,
-                            color : Color(0xff5D34AF)
+                        Container(
+                          margin : EdgeInsets.only(top : 5),
+                          child : Text(producto,style : TextStyle(fontSize: 20, color: Color(0xff5D34AF))),
+                        ),
+                        Row(
+                          children : [
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => EditarItemInventarioPage(producto,_fecha, cantidad, caducidad)),
+                                  );
+                                },
+                                child : Icon(
+                                    Icons.border_color,
+                                    color : Color(0xff5D34AF)
+                                )
+                            ),
+                            GestureDetector(
+                                onTap: () {
+                                  deleteItemInventario(id);
+                                },
+                                child : Icon(
+                                    Icons.restore_from_trash,
+                                    color : Color(0xff5D34AF)
+                                )
+                            )
+                          ]
                         )
                       ],
                     ),
@@ -263,6 +216,17 @@ class _InventarioPageState extends State<InventarioPage> {
       "caducidad" : caducidad
     };
     Productos.add(producto);
+  }
+
+  deleteItemInventario(String _id) async{
+    CollectionReference Productos = FirebaseFirestore.instance.collection('productos');
+    QuerySnapshot query = await Productos.get();
+    query.docs.forEach((element) {
+      var id = element.get("id");
+      if(id == _id){
+        element.reference.delete();
+      }
+    });
   }
 
   fetchItemsInventario() async {
