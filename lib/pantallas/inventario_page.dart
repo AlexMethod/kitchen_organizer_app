@@ -45,7 +45,12 @@ class _InventarioPageState extends State<InventarioPage> {
           )
         )
       );
+  }
 
+  @override
+  void initState() { 
+    super.initState();
+    fetchItemsInventario();
   }
 
   _itemsInventarioList(context){
@@ -59,8 +64,6 @@ class _InventarioPageState extends State<InventarioPage> {
 
   List<Widget> _getItemsInventario(context) {
     var cardsProductos = <Widget>[];
-
-    fetchItemsInventario();
 
     if(_productos != null)
       _productos.forEach((element) {
@@ -209,30 +212,32 @@ class _InventarioPageState extends State<InventarioPage> {
   }
 
   addItemIventario(String nombre, int cantidad, int caducidad){
-    CollectionReference Productos = FirebaseFirestore.instance.collection('productos');
+    CollectionReference productos = FirebaseFirestore.instance.collection('productos');
     Map<String,dynamic> producto = {
       "nombre" : nombre,
       "adquisicion" : DateTime.now(),
       "cantidad" : cantidad,
       "caducidad" : caducidad
     };
-    Productos.add(producto);
+    productos.add(producto);
+    fetchItemsInventario();
   }
 
   deleteItemInventario(String _id) async{
-    CollectionReference Productos = FirebaseFirestore.instance.collection('productos');
-    QuerySnapshot query = await Productos.get();
+    CollectionReference productos = FirebaseFirestore.instance.collection('productos');
+    QuerySnapshot query = await productos.get();
     query.docs.forEach((element) {
       var id = element.get("id");
       if(id == _id){
         element.reference.delete();
+        fetchItemsInventario();
       }
     });
   }
 
   fetchItemsInventario() async {
-    CollectionReference Productos = FirebaseFirestore.instance.collection('productos');
-    var prod = (await Productos.get()).docs;
+    CollectionReference productos = FirebaseFirestore.instance.collection('productos');
+    var prod = (await productos.get()).docs;
     if(this.mounted)
       setState(() {
         _productos = prod;
